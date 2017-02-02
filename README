@@ -1,0 +1,15 @@
+Import Vulnrability and remidations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Quick and dirty python to import security scans (Currently nessus and qualys) into a tracking database.  
+Also an excuse to relearn python and sqlalchmey.   
+Currently only works in python3 due to  a datetime variable i am using that doesnt exist in python 2.7
+
+
+To use
+------
+
+* Init the db ``python3 dbapp.py``
+* Import reports ``python3 --file $SystemName_$ScannerName_$Scop_DDMonYY``
+    * Example: ``Foobar_Qualys_Internal_01JAN17``
+    * There will be flags to specify type and date, but for now the use filename.
+* Print report ``python3 --print > /tmp/1.csv``
