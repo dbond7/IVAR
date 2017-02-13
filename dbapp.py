@@ -168,7 +168,7 @@ class ScanResult(Base):
                     ).all()
             result = results[-1].__dict__
             del result['_sa_instance_state']
-            del result['_hash']
+            #del result['_hash']
             found_results[vuln_hash]=result
 
         return found_results

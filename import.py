@@ -326,12 +326,13 @@ class CVSVulnImporter():
             ongoing_scanresults=self.dbconn_scan_results.get_results_by_hash(ongoing_issues.keys())
             #print( "Ongoing Issues" )
             for k,v in ongoing_scanresults.items():
+                v['hash']=k
                 self.print_csv_row( row=v , status="ongoing")
 
 
     def print_csv_row(self, row, status):
         """ Take a dict, print a line """
-        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
+        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
             row['ip'],
             row['severity'],
             status,
@@ -343,6 +344,7 @@ class CVSVulnImporter():
             row['bugtrackid'],
             row['pcivuln'],
             row['results'].replace('"',"'"),
+            row['_hash']
             )
         )
 
