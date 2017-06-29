@@ -296,7 +296,7 @@ class CVSVulnImporter():
         ongoing_issues=self.dbconn_issue_status.get_issues(statuses=["open"])
 
         #print headers
-        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
+        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
             'ip',
             'severity',
             'status',
@@ -308,6 +308,7 @@ class CVSVulnImporter():
             'bugtrackid',
             'pcivuln',
             'results',
+            'scantype'
             )
         )
         if new_issues:
@@ -332,7 +333,7 @@ class CVSVulnImporter():
 
     def print_csv_row(self, row, status):
         """ Take a dict, print a line """
-        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
+        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
             row['ip'],
             row['severity'],
             status,
@@ -344,7 +345,8 @@ class CVSVulnImporter():
             row['bugtrackid'],
             row['pcivuln'],
             row['results'].replace('"',"'"),
-            row['_hash']
+            row['_hash'],
+            row['scanrun_id']
             )
         )
 
