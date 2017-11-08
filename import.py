@@ -296,7 +296,7 @@ class CVSVulnImporter():
         ongoing_issues=self.dbconn_issue_status.get_issues(statuses=["open"])
 
         #print headers
-        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
+        print( '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"' % (
             'ip',
             'severity',
             'status',
@@ -308,6 +308,7 @@ class CVSVulnImporter():
             'bugtrackid',
             'pcivuln',
             'results',
+            'hash',
             'scantype'
             )
         )
